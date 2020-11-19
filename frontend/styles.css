@@ -1,0 +1,118 @@
+/*
+* 1. Global styles & layout
+*   1.1. Global style setting
+*   1.2. Content styling & layout 
+*   1.3. Responsive styles for different screens
+* 2. Typography styling
+* 3. Component styling & layout
+*/
+
+/* 1. Global styles & layout */
+
+/* 1.1. Global style setting */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,700;1,300;1,700&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    background-color: #222831;
+}
+
+#root {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #30475e;
+    color: #e8e8e8;
+}
+
+/* 1.2. Content styling & layout */
+
+header {
+    /* position: -webkit-sticky; */
+        /* position: sticky; */
+    grid-area: header;
+}
+
+#hero-container {
+    grid-area: hero;
+}
+
+#skills-container {
+    grid-area: skills;
+}
+
+#education-container {
+    grid-area: education;
+}
+
+#experience-container {
+    grid-area: experience;
+}
+
+#hobbies-container {
+    grid-area: hobbies;
+}
+
+footer {
+    background: #333;
+    /* color: rgb(177, 177, 177); */
+    grid-area: footer;
+}
+
+#app {
+    display: grid;
+    grid-template-columns: 1fr minmax(250px, 3fr) 1fr;
+    grid-template-rows: 80px repeat(5, 1fr) 80px;
+    grid-template-areas: 
+        "header header header"
+        ". hero ."
+        ". skills ."
+        ". education ."
+        ". experience ."
+        ". hobbies ."
+        "footer footer footer"
+        ;
+}
+
+/* 1.3. Responsive styles for different screens */
+
+/* 2. Typography styling */
+
+/* h1 {
+    margin: 0 0 1em 0;
+    font-size: 2.8em;
+    font-weight: 700;
+} */
+
+/* h2 {
+    margin: 0 0 .5em 0;
+    font-size: 1.6em;
+    font-weight: 700;
+    line-height: 1.1em;
+} */
+/* 
+h3 {
+    margin: 0 0 .5em 0;
+    font-size: 1.3em;
+    font-weight: 700;
+}
+ */
+/* h4 {
+    margin: 0 0 1.5em 0;
+    font-size: 1em;
+    font-weight: 700;
+} */
+
+/* p {
+    margin: 0 0 1em 0;
+} */
+
+
+/* 3. Component styling & layout */
+#header-content {
+    display: grid;
+    grid-template-columns: 1fr 80px;
+}
