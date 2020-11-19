@@ -98,40 +98,71 @@ footer {
 
 /* 2. Typography styling */
 
-/* h1 {
+h1 {
     margin: 0 0 1em 0;
     font-size: 2.8em;
     font-weight: 700;
-} */
+}
 
-/* h2 {
+h2 {
     margin: 0 0 .5em 0;
     font-size: 1.6em;
     font-weight: 700;
     line-height: 1.1em;
-} */
-/* 
+}
+
 h3 {
     margin: 0 0 .5em 0;
     font-size: 1.3em;
     font-weight: 700;
 }
- */
-/* h4 {
+
+h4 {
     margin: 0 0 1.5em 0;
     font-size: 1e m;
     font-weight: 700;
-} */
+}
 
-/* p {
+p {
     margin: 0 0 1em 0;
-} */
+}
 
 
 /* 3. Component styling & layout */
 #header-content {
     display: grid;
     grid-template-columns: 1fr 80px;
+}
+
+#greeting {
+    grid-area: greeting;
+    margin: 0 auto;
+}
+
+#location {
+    grid-area: location;
+    margin: 0 auto;
+}
+
+#profile-pic {
+    width: 70%;
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 50%;
+    grid-area: picture;
+    margin: 0 auto;
+}
+
+#hero-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+    "picture"
+    "greeting"
+    "location"
+    ;
 }
 
 .hamburger-button {
