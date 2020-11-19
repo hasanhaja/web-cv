@@ -65,7 +65,7 @@ footer {
 #app {
     display: grid;
     grid-template-columns: 1fr minmax(250px, 3fr) 1fr;
-    grid-template-rows: 80px repeat(5, 1fr) 80px;
+    grid-template-rows: 80px repeat(5, auto) 80px;
     grid-template-areas: 
         "header header header"
         ". hero ."
@@ -115,4 +115,16 @@ h3 {
 #header-content {
     display: grid;
     grid-template-columns: 1fr 80px;
+}
+
+.hamburger-button {
+    background-color: #30475e;
+    border: none;
+    color: #e8e8e8;
+    /* padding: 15px 32px; */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 3.5em;
+    font-weight: 900;
 }

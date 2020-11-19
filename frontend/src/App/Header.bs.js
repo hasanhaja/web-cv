@@ -8,7 +8,7 @@ function Header(Props) {
                 }, React.createElement("h1", {
                       className: "flex-logo"
                     }, "H"), React.createElement("button", {
-                      className: "nav-button flex-nav"
+                      className: "hamburger-button"
                     }, "\u2630")));
 }
 
