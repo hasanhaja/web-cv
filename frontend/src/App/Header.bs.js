@@ -7,9 +7,7 @@ function Header(Props) {
                   id: "header-content"
                 }, React.createElement("h1", {
                       className: "flex-logo"
-                    }, "H"), React.createElement("button", {
-                      className: "hamburger-button"
-                    }, "\u2630")));
+                    }, "H")));
 }
 
 var make = Header;
