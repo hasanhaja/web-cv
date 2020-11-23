@@ -80,7 +80,7 @@ footer {
 
 /* 1.3. Responsive styles for different screens */
 
-@media(min-width: 800px) {
+@media screen and (min-width: 800px) {
     #app {
         grid-template-columns: 1fr minmax(250px, 3fr) 1fr minmax(250px, 3fr) 1fr;
         grid-template-rows: 80px repeat(4, auto) 80px;
@@ -92,6 +92,28 @@ footer {
             ". hobbies hobbies hobbies ."
             "footer footer footer footer footer"
             ;
+    }
+
+    #skills-heading {
+        grid-area: heading;
+    }
+    
+    #skills-primary {
+        grid-area: primary;
+    }
+    
+    #skills-secondary {
+        grid-area: secondary;
+    }
+    
+    #skills-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas: 
+            "heading heading"
+            "primary secondary"
+        ;
     }
 }
 
@@ -177,12 +199,6 @@ p {
     font-size: 3.5em;
     font-weight: 900;
 }
-
-/* #skills-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-} */
 
 /* .card {
     background-color: #222831;

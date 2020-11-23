@@ -1,25 +1,32 @@
 type educationContent = {
     dates: string,
+    title: string,
     institute: string,
-    description: string,
+    description: array<string>,
 }
 
 module EducationContent = {
     @react.component
-    let make = (~educationContent as {dates, institute, description}) => {
+    let make = (~educationContent as {dates, title, institute, description}) => {
         <div className="education-content">
-            <h4>{dates->React.string}</h4>
-            <h3>{institute->React.string}</h3>
-            <p>{description->React.string}</p>
+            <h4 className="education-content-dates">{dates->React.string}</h4>
+            <h3 className="education-content-title">{title->React.string}</h3>
+            <h3 className="education-content-institute"><em>{institute->React.string}</em></h3>
+            {
+                description
+                ->Belt.Array.map(desc => <p className="education-content-description">{desc->React.string}</p>)
+                ->React.array
+            }
+            
         </div>
     }
 }
 
 @react.component
 let make = () => {
-    let cranfield = {dates: "2019 to 2020", institute: "Cranfield University", description: "Thesis: Blah Blah Blah Blah Blah Blah Blah Blah"}
+    let cranfield = {dates: "2019 to 2020", title: "MSc Computational and Software Techniques in Engineering (Computer and Machine Vision)", institute: "Cranfield University, UK", description: ["Thesis: Evaluation of 2D Semantic Segmentation Methods for Scene Understanding for Autonomous Driving Applications.", "Group Project: Detecting COVID-19 in Chest X-Ray images."]}
 
-    let brighton = {dates: "2014 to 2019", institute: "University of Brighton", description: "Thesis: Blah Blah Blah Blah Blah Blah Blah Blah"}
+    let brighton = {dates: "2014 to 2019", title: "MEng Mechanical Engineering", institute: "University of Brighton, UK", description: ["Key modules: Advanced Design, Product Innovation and Management, Renewable Technologies (PV and Biomass)"]}
 
     let content = [cranfield, brighton]
 
