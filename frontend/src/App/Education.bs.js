@@ -1,23 +1,38 @@
 'use strict';
 
+var Curry = require("bs-platform/lib/js/curry.js");
 var React = require("react");
 var Belt_Array = require("bs-platform/lib/js/belt_Array.js");
+var Card$Frontend = require("./Components/Card.bs.js");
 
 function Education$EducationContent(Props) {
   var param = Props.educationContent;
-  return React.createElement("div", {
-              className: "education-content"
-            }, React.createElement("h4", {
-                  className: "education-content-dates"
-                }, param.dates), React.createElement("h3", {
-                  className: "education-content-title"
-                }, param.title), React.createElement("h3", {
-                  className: "education-content-institute"
-                }, React.createElement("em", undefined, param.institute)), Belt_Array.map(param.description, (function (desc) {
-                    return React.createElement("p", {
-                                className: "education-content-description"
-                              }, desc);
-                  })));
+  var match = React.useState(function () {
+        return false;
+      });
+  var setState = match[1];
+  return React.createElement(Card$Frontend.make, {
+              children: React.createElement("div", {
+                    className: "education-content"
+                  }, React.createElement("h4", {
+                        className: "education-content-dates"
+                      }, param.dates), React.createElement("h3", {
+                        className: "education-content-title"
+                      }, param.title), React.createElement("h3", {
+                        className: "education-content-institute"
+                      }, React.createElement("em", undefined, param.institute)), match[0] ? Belt_Array.map(param.description, (function (desc) {
+                            return React.createElement("p", {
+                                        className: "education-content-description"
+                                      }, desc);
+                          })) : null, React.createElement("button", {
+                        className: "content-expansion-toggle",
+                        onClick: (function (param) {
+                            return Curry._1(setState, (function (prev) {
+                                          return !prev;
+                                        }));
+                          })
+                      }, "+ View details"))
+            });
 }
 
 var EducationContent = {
@@ -47,6 +62,7 @@ function Education(Props) {
     brighton
   ];
   return React.createElement("div", {
+              className: "container",
               id: "education-container"
             }, React.createElement("h2", undefined, "Education"), Belt_Array.map(content, (function (eduContent) {
                     return React.createElement(Education$EducationContent, {

@@ -2,14 +2,14 @@
 
 var React = require("react");
 
-function Card(Props) {
+function Content(Props) {
   var children = Props.children;
   return React.createElement("div", {
-              className: "card"
+              id: "content-container"
             }, children);
 }
 
-var make = Card;
+var make = Content;
 
 exports.make = make;
 /* react Not a pure module */

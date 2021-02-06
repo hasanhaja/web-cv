@@ -24,6 +24,7 @@ function Skills(Props) {
     "KTor"
   ];
   return React.createElement("div", {
+              className: "container",
               id: "skills-container"
             }, React.createElement("h2", {
                   id: "skills-heading"

@@ -6,6 +6,7 @@ function Hero(Props) {
   var width = String(400);
   var height = String(400);
   return React.createElement("div", {
+              className: "container",
               id: "hero-container"
             }, React.createElement("img", {
                   id: "profile-pic",

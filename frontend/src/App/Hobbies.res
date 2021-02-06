@@ -9,7 +9,7 @@ let make = () => {
 
     "]
 
-    <div id="hobbies-container">
+    <div id="hobbies-container" className="container">
         <h2>{"Hobbies"->React.string}</h2>
         {
             content

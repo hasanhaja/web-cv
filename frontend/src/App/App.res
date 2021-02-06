@@ -3,11 +3,13 @@
 let make = () => {
     <div id="app">
         <Header />
-        <Hero />
-        <Skills />
-        <Education />
-        <Experience />
-        <Hobbies />
+        <Content>
+            <Hero />
+            <Skills />
+            <Education />
+            <Experience />
+            <Hobbies />    
+        </Content>
         <Footer />
         // <footer>{j`${copy} 2020 Hasan Ali`->React.string}</footer>
     </div>

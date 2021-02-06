@@ -9,6 +9,7 @@ function Hobbies(Props) {
     "\n            In my free time, I enjoy listening to Tech podcasts like 'CppCast', 'Corecursive' by Adam Gordon Bell, 'Javascript Jabber', 'Talking Kotlin' by Hari Hadidi or 'New Rustacean'. I'm passionate about writing and developing my blog right now. Get in touch if you want to find out more.  \n\n    "
   ];
   return React.createElement("div", {
+              className: "container",
               id: "hobbies-container"
             }, React.createElement("h2", undefined, "Hobbies"), Belt_Array.map(content, (function (paragraph) {
                     return React.createElement("p", {

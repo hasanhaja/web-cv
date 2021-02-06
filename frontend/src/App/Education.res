@@ -3,22 +3,30 @@ type educationContent = {
     title: string,
     institute: string,
     description: array<string>,
-}
+} 
 
 module EducationContent = {
     @react.component
     let make = (~educationContent as {dates, title, institute, description}) => {
-        <div className="education-content">
-            <h4 className="education-content-dates">{dates->React.string}</h4>
-            <h3 className="education-content-title">{title->React.string}</h3>
-            <h3 className="education-content-institute"><em>{institute->React.string}</em></h3>
-            {
-                description
-                ->Belt.Array.map(desc => <p className="education-content-description">{desc->React.string}</p>)
-                ->React.array
-            }
-            
-        </div>
+        
+        let (state, setState) = React.useState(() => false)
+
+        <Card>
+            <div className="education-content">
+                <h4 className="education-content-dates">{dates->React.string}</h4>
+                <h3 className="education-content-title">{title->React.string}</h3>
+                <h3 className="education-content-institute"><em>{institute->React.string}</em></h3>
+                // TODO add a link to toggle
+                {state ?
+                    {
+                        description
+                        ->Belt.Array.map(desc => <p className="education-content-description">{desc->React.string}</p>)
+                        ->React.array
+                    } : {React.null}
+                }
+                <button className="content-expansion-toggle" onClick={_ => setState(prev => !prev)}>{"+ View details" -> React.string}</button>
+            </div>
+        </Card>
     }
 }
 
@@ -30,7 +38,7 @@ let make = () => {
 
     let content = [cranfield, brighton]
 
-    <div id="education-container">
+    <div id="education-container" className="container">
         <h2>{"Education"->React.string}</h2>
         {content
             -> Belt.Array.map(eduContent => <EducationContent educationContent=eduContent />)

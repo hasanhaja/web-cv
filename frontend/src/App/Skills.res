@@ -8,7 +8,7 @@ let make = () => {
 
     let secondarySkills = ["ReasonML/ReScript", "Rust", "MATLAB", "TypeScript", "ExpressJS", "Tensorflow/TensorflowJS", "Pytorch", "ArrowKT", "KTor"]
 
-    <div id="skills-container">
+    <div id="skills-container" className="container">
         <h2 id="skills-heading">{"Skills"->React.string}</h2>
         // <Card id="js-skill">
         //     <img src alt width height/>

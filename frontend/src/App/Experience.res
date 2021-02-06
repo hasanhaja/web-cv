@@ -8,17 +8,23 @@ type experienceContent = {
 module ExperienceContent = {
     @react.component
     let make = (~experienceContent as {dates, title, organization, description}) => {
-        <div className="experience-content">
-            <h4 className="experience-content-dates">{dates->React.string}</h4>
-            <h3 className="experience-content-title">{title->React.string}</h3>
-            <h3 className="experience-content-organization"><em>{organization->React.string}</em></h3>
-            {
-                description
-                ->Belt.Array.map(desc => <p className="experience-content-description">{desc->React.string}</p>)
-                ->React.array
-            }
-            
-        </div>
+        let (state, setState) = React.useState(() => false)
+
+        <Card>
+            <div className="experience-content">
+                <h4 className="experience-content-dates">{dates->React.string}</h4>
+                <h3 className="experience-content-title">{title->React.string}</h3>
+                <h3 className="experience-content-organization"><em>{organization->React.string}</em></h3>
+                {state ?
+                    {
+                    description
+                    ->Belt.Array.map(desc => <p className="experience-content-description">{desc->React.string}</p>)
+                    ->React.array
+                    } : {React.null}
+                }
+                <button className="content-expansion-toggle" onClick={_ => setState(prev => !prev)}>{"+ View details"->React.string}</button>
+            </div>
+        </Card>
     }
 }
 
@@ -31,7 +37,7 @@ let make = () => {
         description: ["Project management: Carried out a risk assessment project of the operating table production line.", "Tool design: Designed tool to aid assembly of handsets more consistently in the production line."]
     }
     let content = [eschmann]
-    <div id="experience-container">
+    <div id="experience-container" className="container">
         <h2>{"Experience"->React.string}</h2>
         {content
             -> Belt.Array.map(expContent => <ExperienceContent experienceContent=expContent />)
