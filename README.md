@@ -1,5 +1,7 @@
 # Web CV
 
+> This project has been archived and replaced by: https://github.com/hasanhaja/WebCV
+
 This project will contain the development of my web CV.
 
 ## Planned features frontend
